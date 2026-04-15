@@ -1,0 +1,167 @@
+{
+  "info": {
+    "name": "NexusReview - 秒杀全流程 Newman 自动化",
+    "_postman_id": "nexusreview-seckill-newman-auto",
+    "description": "使用 Newman CLI 完整自动化运行秒杀流程（无需手动输入验证码）",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "base_url", "value": "http://192.168.50.88:8080/api" },
+    { "key": "support_url", "value": "http://192.168.50.88:8081/support" },
+    { "key": "phone", "value": "" },
+    { "key": "voucher_id", "value": "10" },
+    { "key": "token", "value": "" },
+    { "key": "order_id", "value": "" },
+    { "key": "code", "value": "" }
+  ],
+  "item": [
+    {
+      "name": "Step 1 - 发送验证码",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              "// 生成随机手机号避免幂等拦截",
+              "const phone = '139' + Math.floor(Math.random() * 90000000 + 10000000);",
+              "pm.collectionVariables.set('phone', phone);",
+              "console.log('测试手机号: ' + phone);"
+            ],
+            "type": "text/javascript"
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('发送验证码成功 HTTP 200', () => pm.response.to.have.status(200));",
+              "const body = pm.response.json();",
+              "pm.test('success=true', () => pm.expect(body.success).to.be.true);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "{{base_url}}/user/code?phone={{phone}}",
+          "host": ["{{base_url}}"],
+          "path": ["user", "code"],
+          "query": [{ "key": "phone", "value": "{{phone}}" }]
+        }
+      }
+    },
+    {
+      "name": "Step 2 - 从 Redis 读验证码",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('读取验证码成功', () => pm.response.to.have.status(200));",
+              "const body = pm.response.json();",
+              "pm.test('验证码不为空', () => pm.expect(body.data.code).to.not.be.empty);",
+              "pm.collectionVariables.set('code', body.data.code);",
+              "console.log('从 Redis 读到验证码: ' + body.data.code);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{support_url}}/get-code?phone={{phone}}",
+          "host": ["{{support_url}}"],
+          "path": ["get-code"],
+          "query": [{ "key": "phone", "value": "{{phone}}" }]
+        }
+      }
+    },
+    {
+      "name": "Step 3 - 登录获取 Token",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('登录成功 HTTP 200', () => pm.response.to.have.status(200));",
+              "const body = pm.response.json();",
+              "pm.test('success=true', () => pm.expect(body.success).to.be.true);",
+              "pm.collectionVariables.set('token', body.data);",
+              "console.log('登录成功，token=' + body.data.substring(0, 16) + '...');"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"phone\": \"{{phone}}\", \"code\": \"{{code}}\"}"
+        },
+        "url": {
+          "raw": "{{base_url}}/user/login",
+          "host": ["{{base_url}}"],
+          "path": ["user", "login"]
+        }
+      }
+    },
+    {
+      "name": "Step 4 - 秒杀抢购",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('秒杀 HTTP 200', () => pm.response.to.have.status(200));",
+              "const body = pm.response.json();",
+              "pm.test('秒杀成功', () => pm.expect(body.success).to.be.true);",
+              "pm.collectionVariables.set('order_id', body.data.toString());",
+              "console.log('秒杀成功！orderId=' + body.data);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "authorization", "value": "{{token}}" }],
+        "url": {
+          "raw": "{{base_url}}/voucher-order/seckill/{{voucher_id}}",
+          "host": ["{{base_url}}"],
+          "path": ["voucher-order", "seckill", "{{voucher_id}}"]
+        }
+      }
+    },
+    {
+      "name": "Step 5 - 重复抢购幂等验证",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+              "const body = pm.response.json();",
+              "pm.test('重复下单被拦截 success=false', () => pm.expect(body.success).to.be.false);",
+              "console.log('幂等验证通过：' + body.errorMsg);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "authorization", "value": "{{token}}" }],
+        "url": {
+          "raw": "{{base_url}}/voucher-order/seckill/{{voucher_id}}",
+          "host": ["{{base_url}}"],
+          "path": ["voucher-order", "seckill", "{{voucher_id}}"]
+        }
+      }
+    }
+  ]
+}

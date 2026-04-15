@@ -1,0 +1,9 @@
+TODO_FEATURES.md
+INTERVIEW_NOTES.md
+tokens.json
+k6-report-summary.json
+newman-official-report.html
+*.log
+/nexus-backend/target/
+/nexus-frontend/logs/
+/nexus-frontend/temp/
