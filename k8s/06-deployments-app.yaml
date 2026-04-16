@@ -1,0 +1,65 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nexus-backend
+  namespace: nexusreview
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nexus-backend
+  template:
+    metadata:
+      labels:
+        app: nexus-backend
+    spec:
+      containers:
+      - name: backend
+        image: your-registry/nexus-backend:latest
+        env:
+        - name: API-KEY
+          valueFrom:
+            secretKeyRef:
+              name: nexus-secrets
+              key: API_KEY
+        - name: SPRING_KAFKA_BOOTSTRAP_SERVERS
+          value: "nexus-kafka:9092"
+        - name: TZ
+          value: "Asia/Shanghai"
+        - name: SERVER_PORT
+          value: "8081"
+        - name: SPRING_DATASOURCE_URL
+          value: "jdbc:mysql://nexus-db:3306/nexusreview?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai"
+        - name: SPRING_DATA_REDIS_HOST
+          value: "nexus-redis"
+        ports:
+        - containerPort: 8081
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nexus-frontend
+  namespace: nexusreview
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nexus-frontend
+  template:
+    metadata:
+      labels:
+        app: nexus-frontend
+    spec:
+      containers:
+      - name: nginx
+        image: your-registry/nexus-frontend:latest
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+        - name: nginx-config
+          mountPath: /etc/nginx/nginx.conf
+          subPath: nginx.conf
+      volumes:
+      - name: nginx-config
+        configMap:
+          name: nexus-configs
