@@ -7,6 +7,8 @@ import com.nexusreview.exception.RateLimitException;
 import com.nexusreview.utils.UserHolder;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
+import io.micrometer.core.instrument.Counter;
+import io.micrometer.core.instrument.MeterRegistry;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -18,6 +20,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+import jakarta.annotation.PostConstruct;
 import java.lang.reflect.Method;
 import java.util.Collections;
 
@@ -27,6 +30,11 @@ import java.util.Collections;
 public class RateLimiterAspect {
 
     private final StringRedisTemplate stringRedisTemplate;
+    private final MeterRegistry meterRegistry;
+    
+    private Counter totalRequestsCounter;
+    private Counter blockedRequestsCounter;
+
     private static final DefaultRedisScript<Long> LIMIT_SCRIPT;
 
     static {
@@ -35,12 +43,24 @@ public class RateLimiterAspect {
         LIMIT_SCRIPT.setResultType(Long.class);
     }
 
-    public RateLimiterAspect(StringRedisTemplate stringRedisTemplate) {
+    public RateLimiterAspect(StringRedisTemplate stringRedisTemplate, MeterRegistry meterRegistry) {
         this.stringRedisTemplate = stringRedisTemplate;
+        this.meterRegistry = meterRegistry;
+    }
+
+    @PostConstruct
+    public void init() {
+        this.totalRequestsCounter = Counter.builder("rate_limit_total_counts")
+                .description("Total requests processed by Rate Limiter")
+                .register(meterRegistry);
+        this.blockedRequestsCounter = Counter.builder("rate_limit_blocked_counts")
+                .description("Total requests blocked by Rate Limiter")
+                .register(meterRegistry);
     }
 
     @Before("@annotation(rateLimit)")
     public void doBefore(JoinPoint joinPoint, RateLimit rateLimit) {
+        totalRequestsCounter.increment();
         String key = rateLimit.key();
         int time = rateLimit.time();
         int count = rateLimit.count();
@@ -57,6 +77,7 @@ public class RateLimiterAspect {
             );
 
             if (result != null && result == 0) {
+                blockedRequestsCounter.increment();
                 log.info("限流策略触发: {}, Key: {}", rateLimit.type(), combinedKey);
                 throw new RateLimitException("操作过于频繁，请稍后再试");
             }
@@ -64,7 +85,6 @@ public class RateLimiterAspect {
             throw e;
         } catch (Exception e) {
             log.error("限流拦截器异常", e);
-            // 降级：异常时不阻塞核心业务
         }
     }
 

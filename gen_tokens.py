@@ -6,7 +6,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 BASE_URL = "http://localhost:8080/api"
 SUPPORT_URL = "http://localhost:8081/support"
 REDIS_PASSWORD = "123321"
-TARGET = 1000  # 生成多少个 token
+TARGET = 5000  # 生成多少个 token
 
 r = redis.Redis(host="localhost", port=6379, password=REDIS_PASSWORD, decode_responses=True)
 

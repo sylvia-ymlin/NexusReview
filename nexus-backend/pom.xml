@@ -136,6 +136,16 @@
             <artifactId>langchain4j-document-parser-apache-pdfbox</artifactId>
             <version>1.0.1-beta6</version>
         </dependency>
+
+        <!-- Monitoring & Metrics -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-prometheus</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

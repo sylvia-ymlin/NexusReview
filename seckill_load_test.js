@@ -39,7 +39,7 @@ const seckillLatency = new Trend('seckill_latency_ms');
 // 从环境变量读取 token 列表（由 gen_tokens.py 生成）
 // ============================================================
 const tokens = JSON.parse(open('/tokens/tokens.json'));
-const BASE_URL = 'http://host-gateway:8080/api';
+const BASE_URL = 'http://nexus-nginx:8080/api';
 const VOUCHER_ID = 10;
 
 export default function () {

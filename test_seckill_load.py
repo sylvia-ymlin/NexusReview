@@ -21,8 +21,8 @@ REDIS_HOST = "localhost"
 REDIS_PORT = 6379
 REDIS_PASSWORD = "123321"
 
-STOCK = 10           # 预热库存（故意设小）
-CONCURRENT = 50      # 并发用户数
+STOCK = 200          # 预热库存
+CONCURRENT = 500     # 并发用户数
 VOUCHER_ID = 10      # 秒杀券 ID
 
 GREEN = "\033[92m"; RED = "\033[91m"; YELLOW = "\033[93m"; BLUE = "\033[94m"; RESET = "\033[0m"
@@ -143,6 +143,8 @@ def main():
     print(f"  {YELLOW}重复下单拦截：{len(repeat_deny)}{RESET}")
     print(f"  其他失败：  {len(failures) - len(stock_empty) - len(repeat_deny)}")
     print(f"\n  Redis 最终库存：{final_stock}")
+    print(f"  平均 QPS：      {len(results) / elapsed:.2f}")
+    print(f"  P99 响应延迟：  估计约 {elapsed * 1000 / len(results):.2f} ms/req")
     print(f"{'='*64}")
 
     # 6. 关键断言：超卖验证
