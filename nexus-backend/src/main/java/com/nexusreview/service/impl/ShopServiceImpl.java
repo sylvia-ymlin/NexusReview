@@ -80,8 +80,8 @@ public class ShopServiceImpl extends ServiceImpl<ShopMapper, Shop> implements IS
         }
         // 1.更新数据库
         updateById(shop);
-        // 2.删除缓存
-        stringRedisTemplate.delete(RedisConstants.CACHE_SHOP_KEY + shopId);
+        // 2.删除缓存 (带 MQ 补偿重试)
+        cacheClient.deleteWithRetry(RedisConstants.CACHE_SHOP_KEY + shopId);
 
         return Result.ok();
     }

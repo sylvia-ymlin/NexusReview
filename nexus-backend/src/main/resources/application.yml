@@ -19,6 +19,17 @@ spring:
           min-idle: 1
           time-between-eviction-runs: 10s
       database: 0
+  kafka:
+    bootstrap-servers: nexus-kafka:9092
+    producer:
+      retries: 3
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    consumer:
+      group-id: seckill-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
   jackson:
     default-property-inclusion: non_null # JSON处理时忽略非空字段
   servlet:

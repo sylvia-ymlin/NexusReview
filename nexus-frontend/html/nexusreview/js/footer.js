@@ -2,23 +2,23 @@ Vue.component("footBar", {
   template: `
     <div class="foot">
     <div class="foot-box" :class="{active: activeBtn === 1}" @click="toPage(1)">
-      <div class="foot-view"><i class="el-icon-s-home"></i></div>
-      <div class="foot-text">首页</div>
+      <img :src="activeBtn === 1 ? '/imgs/icons/home.png' : '/imgs/icons/home.png'" class="nav-icon">
+      <div class="foot-text">Hem</div>
     </div>
     <div class="foot-box" :class="{active: activeBtn === 2}" @click="toPage(2)">
-      <div class="foot-view"><i class="el-icon-map-location"></i></div>
-      <div class="foot-text">地图</div>
+      <img :src="activeBtn === 2 ? '/imgs/icons/map.png' : '/imgs/icons/map.png'" class="nav-icon">
+      <div class="foot-text">Upptäck</div>
     </div>
     <div class="foot-box" @click="toPage(0)">
-      <img class="add-btn" src="/imgs/add.png" alt="">
+      <img class="add-btn" src="/imgs/icons/add.png" alt="">
     </div>
     <div class="foot-box" :class="{active: activeBtn === 3}" @click="toPage(3)">
-      <div class="foot-view"><i class="el-icon-chat-dot-round"></i></div>
-      <div class="foot-text">消息</div>
+      <img :src="activeBtn === 3 ? '/imgs/icons/chat.png' : '/imgs/icons/chat.png'" class="nav-icon">
+      <div class="foot-text">Meddelanden</div>
     </div>
     <div class="foot-box" :class="{active: activeBtn === 4}" @click="toPage(4)">
-      <div class="foot-view"><i class="el-icon-user"></i></div>
-      <div class="foot-text">我的</div>
+      <img :src="activeBtn === 4 ? '/imgs/icons/profile.png' : '/imgs/icons/profile.png'" class="nav-icon">
+      <div class="foot-text">Profil</div>
     </div>
   </div>
   `,

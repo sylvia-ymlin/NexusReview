@@ -126,20 +126,53 @@ CREATE TABLE `tb_shop`  (
 -- ----------------------------
 -- Records of tb_shop
 -- ----------------------------
-INSERT INTO `tb_shop` VALUES (1, '103茶餐厅', 1, 'https://qcloud.dpfile.com/pc/jiclIsCKmOI2arxKN1Uf0Hx3PucIJH8q0QSz-Z8llzcN56-_QiKuOvyio1OOxsRtFoXqu0G3iT2T27qat3WhLVEuLYk00OmSS1IdNpm8K8sG4JN9RIm2mTKcbLtc2o2vfCF2ubeXzk49OsGrXt_KYDCngOyCwZK-s3fqawWswzk.jpg,https://qcloud.dpfile.com/pc/IOf6VX3qaBgFXFVgp75w-KKJmWZjFc8GXDU8g9bQC6YGCpAmG00QbfT4vCCBj7njuzFvxlbkWx5uwqY2qcjixFEuLYk00OmSS1IdNpm8K8sG4JN9RIm2mTKcbLtc2o2vmIU_8ZGOT1OjpJmLxG6urQ.jpg', '大关', '金华路锦昌文华苑29号', 120.149192, 30.316078, 80, 0000004215, 0000003035, 37, '10:00-22:00', '2021-12-22 18:10:39', '2022-01-13 17:32:19');
-INSERT INTO `tb_shop` VALUES (2, '蔡馬洪涛烤肉·老北京铜锅涮羊肉', 1, 'https://p0.meituan.net/bbia/c1870d570e73accbc9fee90b48faca41195272.jpg,http://p0.meituan.net/mogu/397e40c28fc87715b3d5435710a9f88d706914.jpg,https://qcloud.dpfile.com/pc/MZTdRDqCZdbPDUO0Hk6lZENRKzpKRF7kavrkEI99OxqBZTzPfIxa5E33gBfGouhFuzFvxlbkWx5uwqY2qcjixFEuLYk00OmSS1IdNpm8K8sG4JN9RIm2mTKcbLtc2o2vmIU_8ZGOT1OjpJmLxG6urQ.jpg', '拱宸桥/上塘', '上塘路1035号（中国工商银行旁）', 120.151505, 30.333422, 85, 0000002160, 0000001460, 46, '11:30-03:00', '2021-12-22 19:00:13', '2022-01-11 16:12:26');
-INSERT INTO `tb_shop` VALUES (3, '新白鹿餐厅(运河上街店)', 1, 'https://p0.meituan.net/biztone/694233_1619500156517.jpeg,https://img.meituan.net/msmerchant/876ca8983f7395556eda9ceb064e6bc51840883.png,https://img.meituan.net/msmerchant/86a76ed53c28eff709a36099aefe28b51554088.png', '运河上街', '台州路2号运河上街购物中心F5', 120.151954, 30.32497, 61, 0000012035, 0000008045, 47, '10:30-21:00', '2021-12-22 19:10:05', '2022-01-11 16:12:42');
-INSERT INTO `tb_shop` VALUES (4, 'Mamala(杭州远洋乐堤港店)', 1, 'https://img.meituan.net/msmerchant/232f8fdf09050838bd33fb24e79f30f9606056.jpg,https://qcloud.dpfile.com/pc/rDe48Xe15nQOHCcEEkmKUp5wEKWbimt-HDeqYRWsYJseXNncvMiXbuED7x1tXqN4uzFvxlbkWx5uwqY2qcjixFEuLYk00OmSS1IdNpm8K8sG4JN9RIm2mTKcbLtc2o2vmIU_8ZGOT1OjpJmLxG6urQ.jpg', '拱宸桥/上塘', '丽水路66号远洋乐堤港商城2期1层B115号', 120.146659, 30.312742, 290, 0000013519, 0000009529, 49, '11:00-22:00', '2021-12-22 19:17:15', '2022-01-11 16:12:51');
-INSERT INTO `tb_shop` VALUES (5, '海底捞火锅(水晶城购物中心店）', 1, 'https://img.meituan.net/msmerchant/054b5de0ba0b50c18a620cc37482129a45739.jpg,https://img.meituan.net/msmerchant/59b7eff9b60908d52bd4aea9ff356e6d145920.jpg,https://qcloud.dpfile.com/pc/Qe2PTEuvtJ5skpUXKKoW9OQ20qc7nIpHYEqJGBStJx0mpoyeBPQOJE4vOdYZwm9AuzFvxlbkWx5uwqY2qcjixFEuLYk00OmSS1IdNpm8K8sG4JN9RIm2mTKcbLtc2o2vmIU_8ZGOT1OjpJmLxG6urQ.jpg', '大关', '上塘路458号水晶城购物中心F6', 120.15778, 30.310633, 104, 0000004125, 0000002764, 49, '10:00-07:00', '2021-12-22 19:20:58', '2022-01-11 16:13:01');
-INSERT INTO `tb_shop` VALUES (6, '幸福里老北京涮锅（丝联店）', 1, 'https://img.meituan.net/msmerchant/e71a2d0d693b3033c15522c43e03f09198239.jpg,https://img.meituan.net/msmerchant/9f8a966d60ffba00daf35458522273ca658239.jpg,https://img.meituan.net/msmerchant/ef9ca5ef6c05d381946fe4a9aa7d9808554502.jpg', '拱宸桥/上塘', '金华南路189号丝联166号', 120.148603, 30.318618, 130, 0000009531, 0000007324, 46, '11:00-13:50,17:00-20:50', '2021-12-22 19:24:53', '2022-01-11 16:13:09');
-INSERT INTO `tb_shop` VALUES (7, '炉鱼(拱墅万达广场店)', 1, 'https://img.meituan.net/msmerchant/909434939a49b36f340523232924402166854.jpg,https://img.meituan.net/msmerchant/32fd2425f12e27db0160e837461c10303700032.jpg,https://img.meituan.net/msmerchant/f7022258ccb8dabef62a0514d3129562871160.jpg', '北部新城', '杭行路666号万达商业中心4幢2单元409室(铺位号4005)', 120.124691, 30.336819, 85, 0000002631, 0000001320, 47, '00:00-24:00', '2021-12-22 19:40:52', '2022-01-11 16:13:19');
-INSERT INTO `tb_shop` VALUES (8, '浅草屋寿司（运河上街店）', 1, 'https://img.meituan.net/msmerchant/cf3dff697bf7f6e11f4b79c4e7d989e4591290.jpg,https://img.meituan.net/msmerchant/0b463f545355c8d8f021eb2987dcd0c8567811.jpg,https://img.meituan.net/msmerchant/c3c2516939efaf36c4ccc64b0e629fad587907.jpg', '运河上街', '拱墅区金华路80号运河上街B1', 120.150526, 30.325231, 88, 0000002406, 0000001206, 46, ' 11:00-21:30', '2021-12-22 19:51:06', '2022-01-11 16:13:25');
-INSERT INTO `tb_shop` VALUES (9, '羊老三羊蝎子牛仔排北派炭火锅(运河上街店)', 1, 'https://p0.meituan.net/biztone/163160492_1624251899456.jpeg,https://img.meituan.net/msmerchant/e478eb16f7e31a7f8b29b5e3bab6de205500837.jpg,https://img.meituan.net/msmerchant/6173eb1d18b9d70ace7fdb3f2dd939662884857.jpg', '运河上街', '台州路2号运河上街购物中心F5', 120.150598, 30.325251, 101, 0000002763, 0000001363, 44, '11:00-21:30', '2021-12-22 19:53:59', '2022-01-11 16:13:34');
-INSERT INTO `tb_shop` VALUES (10, '开乐迪KTV（运河上街店）', 2, 'https://p0.meituan.net/joymerchant/a575fd4adb0b9099c5c410058148b307-674435191.jpg,https://p0.meituan.net/merchantpic/68f11bf850e25e437c5f67decfd694ab2541634.jpg,https://p0.meituan.net/dpdeal/cb3a12225860ba2875e4ea26c6d14fcc197016.jpg', '运河上街', '台州路2号运河上街购物中心F4', 120.149093, 30.324666, 67, 0000026891, 0000000902, 37, '00:00-24:00', '2021-12-22 20:25:16', '2021-12-22 20:25:16');
-INSERT INTO `tb_shop` VALUES (11, 'INLOVE KTV(水晶城店)', 2, 'https://p0.meituan.net/dpmerchantpic/53e74b200211d68988a4f02ae9912c6c1076826.jpg,https://qcloud.dpfile.com/pc/4iWtIvzLzwM2MGgyPu1PCDb4SWEaKqUeHm--YAt1EwR5tn8kypBcqNwHnjg96EvT_Gd2X_f-v9T8Yj4uLt25Gg.jpg,https://qcloud.dpfile.com/pc/WZsJWRI447x1VG2x48Ujgu7vwqksi_9WitdKI4j3jvIgX4MZOpGNaFtM93oSSizbGybIjx5eX6WNgCPvcASYAw.jpg', '水晶城', '上塘路458号水晶城购物中心6层', 120.15853, 30.310002, 75, 0000035977, 0000005684, 47, '11:30-06:00', '2021-12-22 20:29:02', '2021-12-22 20:39:00');
-INSERT INTO `tb_shop` VALUES (12, '魅(杭州远洋乐堤港店)', 2, 'https://p0.meituan.net/dpmerchantpic/63833f6ba0393e2e8722420ef33f3d40466664.jpg,https://p0.meituan.net/dpmerchantpic/ae3c94cc92c529c4b1d7f68cebed33fa105810.png,', '远洋乐堤港', '丽水路58号远洋乐堤港F4', 120.14983, 30.31211, 88, 0000006444, 0000000235, 46, '10:00-02:00', '2021-12-22 20:34:34', '2021-12-22 20:34:34');
-INSERT INTO `tb_shop` VALUES (13, '讴K拉量贩KTV(北城天地店)', 2, 'https://p1.meituan.net/merchantpic/598c83a8c0d06fe79ca01056e214d345875600.jpg,https://qcloud.dpfile.com/pc/HhvI0YyocYHRfGwJWqPQr34hRGRl4cWdvlNwn3dqghvi4WXlM2FY1te0-7pE3Wb9_Gd2X_f-v9T8Yj4uLt25Gg.jpg,https://qcloud.dpfile.com/pc/F5ZVzZaXFE27kvQzPnaL4V8O9QCpVw2nkzGrxZE8BqXgkfyTpNExfNG5CEPQX4pjGybIjx5eX6WNgCPvcASYAw.jpg', 'D32天阳购物中心', '湖州街567号北城天地5层', 120.130453, 30.327655, 58, 0000018997, 0000001857, 41, '12:00-02:00', '2021-12-22 20:38:54', '2021-12-22 20:40:04');
-INSERT INTO `tb_shop` VALUES (14, '星聚会KTV(拱墅区万达店)', 2, 'https://p0.meituan.net/dpmerchantpic/f4cd6d8d4eb1959c3ea826aa05a552c01840451.jpg,https://p0.meituan.net/dpmerchantpic/2efc07aed856a8ab0fc75c86f4b9b0061655777.jpg,https://qcloud.dpfile.com/pc/zWfzzIorCohKT0bFwsfAlHuayWjI6DBEMPHHncmz36EEMU9f48PuD9VxLLDAjdoU_Gd2X_f-v9T8Yj4uLt25Gg.jpg', '北部新城', '杭行路666号万达广场C座1-2F', 120.128958, 30.337252, 60, 0000017771, 0000000685, 47, '10:00-22:00', '2021-12-22 20:48:54', '2021-12-22 20:48:54');
+-- ----------------------------
+-- Records of tb_shop (Sweden Nationwide Elite Edition)
+-- ----------------------------
+-- 1. Stockholm
+INSERT INTO `tb_shop` VALUES (1, 'Vete-Katten', 1, '/imgs/shops/vete_katten.jpg', 'Norrmalm', 'Kungsgatan 55, Stockholm', 18.0610, 59.3343, 120, 0000005000, 0000001200, 48, '07:30-20:00', '2022-01-01 10:00:00', '2022-01-01 10:00:00');
+INSERT INTO `tb_shop` VALUES (2, 'Meatballs for the People', 3, '/imgs/shops/meatballs.jpg', 'Södermalm', 'Nytorgsgatan 30, Stockholm', 18.0827, 59.3148, 250, 0000008000, 0000002500, 49, '11:00-22:00', '2022-01-01 10:00:00', '2022-01-01 10:00:00');
+INSERT INTO `tb_shop` VALUES (3, 'Sturehof', 2, '/imgs/shops/sturehof.jpg', 'Östermalm', 'Stureplan 2, Stockholm', 18.0732, 59.3358, 450, 0000012000, 0000004500, 47, '11:00-02:00', '2022-01-01 10:00:00', '2022-01-01 10:00:00');
+INSERT INTO `tb_shop` VALUES (4, 'Pelikan', 3, '/imgs/shops/pelikan.jpg', 'Södermalm', 'Blekingegatan 40, Stockholm', 18.0850, 59.3093, 300, 0000006500, 0000001800, 46, '16:00-00:00', '2022-01-01 10:00:00', '2022-01-01 10:00:00');
+INSERT INTO `tb_shop` VALUES (5, 'Ai Ramen', 7, '/imgs/shops/airamen.jpg', 'Södermalm', 'Erstagatan 22, Stockholm', 18.0820, 59.3149, 140, 0000004200, 0000000950, 45, '11:30-21:00', '2022-01-01 10:00:00', '2022-01-01 10:00:00');
+INSERT INTO `tb_shop` VALUES (6, 'Drop Coffee', 1, '/imgs/shops/dropcoffee.jpg', 'Södermalm', 'Wollmar Yxkullsgatan 10, Stockholm', 18.0626, 59.3170, 80, 0000003500, 0000000850, 48, '08:00-18:00', '2022-01-01 10:00:00', '2022-01-01 10:00:00');
+
+-- 2. Gothenburg
+INSERT INTO `tb_shop` VALUES (10, 'Sjöbaren', 2, '/imgs/shops/sjobaren.jpg', 'Haga', 'Lorensbergsgatan 14, Göteborg', 11.9772, 57.6989, 280, 0000007200, 0000002100, 49, '11:30-22:30', '2022-01-01 10:00:00', '2022-01-01 10:00:00');
+INSERT INTO `tb_shop` VALUES (11, 'Café Husaren', 1, '/imgs/shops/husaren.jpg', 'Haga', 'Haga Nygata 28, Göteborg', 11.9560, 57.6997, 95, 0000009500, 0000003000, 47, '09:00-19:00', '2022-01-01 10:00:00', '2022-01-01 10:00:00');
+INSERT INTO `tb_shop` VALUES (12, 'Moon Thai Kitchen', 7, '/imgs/shops/moonthai.jpg', 'Lorensberg', 'Kristinelundsgatan 9, Göteborg', 11.9773, 57.6983, 220, 0000005500, 0000001200, 46, '16:00-23:00', '2022-01-01 10:00:00', '2022-01-01 10:00:00');
+
+-- 3. Malmö
+INSERT INTO `tb_shop` VALUES (20, 'Ruths', 4, '/imgs/shops/ruths.jpg', 'Centrum', 'Malmborgsgatan 6, Malmö', 12.9996, 55.6047, 320, 0000004800, 0000001100, 48, '07:00-23:00', '2022-01-01 10:00:00', '2022-01-01 10:00:00');
+INSERT INTO `tb_shop` VALUES (21, 'Vollmers', 4, '/imgs/shops/vollmers.jpg', 'Centrum', 'Tegnérgatan 7, Malmö', 13.0039, 55.6030, 1800, 0000001200, 0000000500, 50, '18:00-00:00', '2022-01-01 10:00:00', '2022-01-01 10:00:00');
+
+-- 4. Uppsala
+INSERT INTO `tb_shop` VALUES (30, 'Domtrappkällaren', 3, '/imgs/shops/domtrapp.jpg', 'Centrum', 'S:t Eriks torg 15, Uppsala', 17.6353, 59.8583, 380, 0000003200, 0000000900, 47, '11:00-22:00', '2022-01-01 10:00:00', '2022-01-01 10:00:00');
+INSERT INTO `tb_shop` VALUES (31, 'Hambergs Fisk', 2, '/imgs/shops/hambergs.jpg', 'Centrum', 'Fyristorg 8, Uppsala', 17.6361, 59.8581, 420, 0000002800, 0000000750, 48, '11:30-23:00', '2022-01-01 10:00:00', '2022-01-01 10:00:00');
+
+-- 5. Lund
+INSERT INTO `tb_shop` VALUES (40, 'Mat & Destillat', 4, '/imgs/shops/matdest.jpg', 'Centrum', 'Kyrkogatan 17, Lund', 13.1936, 55.7042, 350, 0000002500, 0000000600, 49, '11:30-23:00', '2022-01-01 10:00:00', '2022-01-01 10:00:00');
+INSERT INTO `tb_shop` VALUES (41, 'Café Ariman', 5, '/imgs/shops/ariman.jpg', 'Centrum', 'Kungsgatan 2, Lund', 13.1934, 55.7046, 110, 0000006800, 0000001500, 45, '11:00-01:00', '2022-01-01 10:00:00', '2022-01-01 10:00:00');
+
+-- 6. Kiruna
+INSERT INTO `tb_shop` VALUES (50, 'Stejk Street Food', 6, '/imgs/shops/stejk.jpg', 'Centrum', 'Konduktörsgatan 22, Kiruna', 20.2250, 67.8540, 160, 0000004500, 0000001200, 50, '11:00-20:00', '2022-01-01 10:00:00', '2022-01-01 10:00:00');
+INSERT INTO `tb_shop` VALUES (51, 'Camp Ripan Kitchen', 6, '/imgs/shops/ripan.jpg', 'Camping', 'Campingvägen 5, Kiruna', 20.2520, 67.8631, 450, 0000002200, 0000000650, 47, '17:00-22:00', '2022-01-01 10:00:00', '2022-01-01 10:00:00');
+
+-- 7. Visby
+INSERT INTO `tb_shop` VALUES (60, 'Bakfickan', 2, '/imgs/shops/bakfickan.jpg', 'Innerstaden', 'S:t Katarinagatan 2, Visby', 18.2954, 57.6406, 280, 0000005200, 0000001800, 48, '11:30-22:00', '2022-01-01 10:00:00', '2022-01-01 10:00:00');
+INSERT INTO `tb_shop` VALUES (61, 'Surfers', 7, '/imgs/shops/surfers.jpg', 'Innerstaden', 'Södra Kyrkogatan 1, Visby', 18.2960, 57.6393, 350, 0000004100, 0000001100, 49, '17:00-00:00', '2022-01-01 10:00:00', '2022-01-01 10:00:00');
+
+-- 8. Umeå
+INSERT INTO `tb_shop` VALUES (70, 'Köksbaren', 4, '/imgs/shops/koksbaren.jpg', 'Centrum', 'Rådhusesplanaden 17, Umeå', 20.2657, 63.8292, 380, 0000003100, 0000000850, 49, '17:00-23:00', '2022-01-01 10:00:00', '2022-01-01 10:00:00');
+
+-- 9. Helsingborg
+INSERT INTO `tb_shop` VALUES (80, 'Sillen & Makrillen', 2, '/imgs/shops/sillen.jpg', 'Gröningen', 'Gröningen Norra 1, Helsingborg', 12.6813, 56.0556, 420, 0000003800, 0000001050, 48, '12:00-23:00', '2022-01-01 10:00:00', '2022-01-01 10:00:00');
+
+-- 10. Jönköping
+INSERT INTO `tb_shop` VALUES (90, 'El Gordo', 8, '/imgs/shops/elgordo.jpg', 'Vättern', 'Järnvägsgatan 2, Jönköping', 14.1610, 57.7830, 180, 0000002900, 0000000700, 44, '11:30-23:00', '2022-01-01 10:00:00', '2022-01-01 10:00:00');
+
+-- 11. Norrköping
+INSERT INTO `tb_shop` VALUES (100, 'Stadsvakten', 3, '/imgs/shops/stadsvakten.jpg', 'Industrilandskapet', 'Nya Rådstugugatan 16, Norrköping', 16.1856, 58.5878, 320, 0000002600, 0000000650, 47, '11:30-23:00', '2022-01-01 10:00:00', '2022-01-01 10:00:00');
 
 -- ----------------------------
 -- Table structure for tb_shop_type
@@ -158,14 +191,14 @@ CREATE TABLE `tb_shop_type`  (
 -- ----------------------------
 -- Records of tb_shop_type
 -- ----------------------------
-INSERT INTO `tb_shop_type` VALUES (1, '美食', '/types/ms.png', 1, '2021-12-22 20:17:47', '2021-12-23 11:24:31');
-INSERT INTO `tb_shop_type` VALUES (2, 'KTV', '/types/KTV.png', 2, '2021-12-22 20:18:27', '2021-12-23 11:24:31');
-INSERT INTO `tb_shop_type` VALUES (3, '丽人·美发', '/types/lrmf.png', 3, '2021-12-22 20:18:48', '2021-12-23 11:24:31');
-INSERT INTO `tb_shop_type` VALUES (4, '健身运动', '/types/jsyd.png', 10, '2021-12-22 20:19:04', '2021-12-23 11:24:31');
-INSERT INTO `tb_shop_type` VALUES (5, '按摩·足疗', '/types/amzl.png', 5, '2021-12-22 20:19:27', '2021-12-23 11:24:31');
-INSERT INTO `tb_shop_type` VALUES (6, '美容SPA', '/types/spa.png', 6, '2021-12-22 20:19:35', '2021-12-23 11:24:31');
-INSERT INTO `tb_shop_type` VALUES (7, '亲子游乐', '/types/qzyl.png', 7, '2021-12-22 20:19:53', '2021-12-23 11:24:31');
-INSERT INTO `tb_shop_type` VALUES (8, '酒吧', '/types/jiuba.png', 8, '2021-12-22 20:20:02', '2021-12-23 11:24:31');
+INSERT INTO `tb_shop_type` VALUES (1, 'Fika/下午茶', '/types/fika.png', 1, '2021-12-22 20:17:47', '2021-12-23 11:24:31');
+INSERT INTO `tb_shop_type` VALUES (2, '海鲜盛宴', '/types/seafood.png', 2, '2021-12-22 20:18:27', '2021-12-23 11:24:31');
+INSERT INTO `tb_shop_type` VALUES (3, '瑞典经典家常', '/types/traditional.png', 3, '2021-12-22 20:18:48', '2021-12-23 11:24:31');
+INSERT INTO `tb_shop_type` VALUES (4, '北欧高端创意', '/types/fusion.png', 4, '2021-12-22 20:19:04', '2021-12-23 11:24:31');
+INSERT INTO `tb_shop_type` VALUES (5, '微醺酒吧', '/types/bar.png', 5, '2021-12-22 20:19:27', '2021-12-23 11:24:31');
+INSERT INTO `tb_shop_type` VALUES (6, '萨米/极北特色', '/types/sami.png', 6, '2021-12-22 20:19:35', '2021-12-23 11:24:31');
+INSERT INTO `tb_shop_type` VALUES (7, '亚洲融合风味', '/types/asian.png', 7, '2021-12-22 20:19:53', '2021-12-23 11:24:31');
+INSERT INTO `tb_shop_type` VALUES (8, '街头美食', '/types/street.png', 8, '2021-12-22 20:20:02', '2021-12-23 11:24:31');
 
 -- ----------------------------
 -- Table structure for tb_sign
@@ -387,3 +420,33 @@ create table if not exists tb_reservation (
 -- ----------------------------
 
 SET FOREIGN_KEY_CHECKS = 1;
+INSERT INTO `tb_shop` VALUES (7, 'Pelikan', 3, '/imgs/shops/pelikan.jpg', 'Södermalm', 'Blekingegatan 40, Stockholm', 18.0850, 59.3093, 300, 0000006500, 0000001800, 46, '16:00-00:00', '2022-01-01 10:00:00', '2022-01-01 10:00:00');
+INSERT INTO `tb_shop` VALUES (8, 'Riche', 4, '/imgs/shops/riche.jpg', 'Östermalm', 'Birger Jarlsgatan 4, Stockholm', 18.0750, 59.3330, 400, 0000008500, 0000002200, 47, '11:00-02:00', '2022-01-01 10:00:00', '2022-01-01 10:00:00');
+INSERT INTO `tb_shop` VALUES (9, 'Prinsen', 3, '/imgs/shops/prinsen.jpg', 'Norrmalm', 'Mäster Samuelsgatan 4, Stockholm', 18.0730, 59.3335, 350, 0000007500, 0000001900, 48, '11:30-23:00', '2022-01-01 10:00:00', '2022-01-01 10:00:00');
+INSERT INTO `tb_shop` VALUES (13, 'Sjömagasinet', 2, '/imgs/shops/sjomagasinet.jpg', 'Klippan', 'Adolf Edelsvärds gata 5, Göteborg', 11.9160, 57.6900, 650, 0000004500, 000001200, 49, '11:30-23:00', '2022-01-01 10:00:00', '2022-01-01 10:00:00');
+INSERT INTO `tb_shop` VALUES (14, 'Hagabullen', 1, '/imgs/shops/hagabullen.jpg', 'Haga', 'Haga Nygata 28, Göteborg', 11.9560, 57.6997, 85, 0000009500, 0000003000, 50, '09:00-19:00', '2022-01-01 10:00:00', '2022-01-01 10:00:00');
+INSERT INTO `tb_shop` VALUES (22, 'Bastard Burgers', 8, '/imgs/shops/bastard.jpg', 'Centrum', 'Södergatan 22, Malmö', 13.0010, 55.6050, 150, 0000005500, 0000001800, 46, '11:00-22:00', '2022-01-01 10:00:00', '2022-01-01 10:00:00');
+INSERT INTO `tb_shop` VALUES (23, 'Lilla Kafferosteriet', 1, '/imgs/shops/karo.jpg', 'Centrum', 'Baltzarsgatan 24, Malmö', 13.0040, 55.6035, 90, 0000007200, 0000002100, 49, '08:00-19:00', '2022-01-01 10:00:00', '2022-01-01 10:00:00');
+-- 7. Visby (Gotland)
+INSERT INTO `tb_shop` VALUES (62, 'Crêperie & Logi', 8, '/imgs/shops/crep.jpg', 'Innerstaden', 'Wallers plats 3, Visby', 18.2930, 57.6400, 180, 0000003500, 0000000850, 48, '11:00-22:00', '2022-01-01 10:00:00', '2022-01-01 10:00:00');
+INSERT INTO `tb_shop` VALUES (63, 'Lindgården', 4, '/imgs/shops/lind.jpg', 'Innerstaden', 'Strandgatan 26, Visby', 18.2910, 57.6410, 450, 0000002200, 0000000650, 47, '17:00-23:00', '2022-01-01 10:00:00', '2022-01-01 10:00:00');
+
+-- 8. Umeå
+INSERT INTO `tb_shop` VALUES (71, 'Gotthards Krog', 4, '/imgs/shops/gotthards.jpg', 'Centrum', 'Storgatan 46, Umeå', 20.2608, 63.8250, 420, 0000002800, 0000000750, 49, '11:30-23:00', '2022-01-01 10:00:00', '2022-01-01 10:00:00');
+INSERT INTO `tb_shop` VALUES (72, 'Kulturbageriet', 1, '/imgs/shops/kultur.jpg', 'Centrum', 'Storgatan 46, Umeå', 20.2610, 63.8251, 110, 0000006200, 0000001500, 48, '08:00-18:00', '2022-01-01 10:00:00', '2022-01-01 10:00:00');
+
+-- 9. Helsingborg
+INSERT INTO `tb_shop` VALUES (81, 'Château Forêt', 4, '/imgs/shops/chateau.jpg', 'Centrum', 'Södra Storgatan 19, Helsingborg', 12.6970, 56.0460, 380, 0000003100, 0000000800, 47, '17:00-23:00', '2022-01-01 10:00:00', '2022-01-01 10:00:00');
+
+-- 10. Jönköping
+INSERT INTO `tb_shop` VALUES (91, 'Sjökanten', 2, '/imgs/shops/sjokanten.jpg', 'Vättern', 'Jönköping Waterfront', 14.1620, 57.7840, 350, 0000002500, 0000000600, 46, '11:30-22:00', '2022-01-01 10:00:00', '2022-01-01 10:00:00');
+
+-- 11. Norrköping
+INSERT INTO `tb_shop` VALUES (101, 'Trattoria Gabriel', 7, '/imgs/shops/gabriel.jpg', 'Centrum', 'Drottninggatan 1, Norrköping', 16.1880, 58.5900, 220, 0000004500, 0000001200, 45, '11:00-22:00', '2022-01-01 10:00:00', '2022-01-01 10:00:00');
+
+-- Batch more items to reach 60+ (adding similar top-rated spots)
+INSERT INTO `tb_shop` VALUES (110, 'Pascal', 1, '/imgs/shops/pascal.jpg', 'Odenplan', 'Norrtullsgatan 4, Stockholm', 18.0500, 59.3430, 95, 0000008500, 0000002800, 49, '07:30-18:00', '2022-01-01 10:00:00', '2022-01-01 10:00:00');
+INSERT INTO `tb_shop` VALUES (111, 'Green Rabbit', 1, '/imgs/shops/green.jpg', 'Norrmalm', 'Tegnérgatan 17, Stockholm', 18.0610, 59.3400, 85, 0000007200, 0000001900, 48, '08:00-17:00', '2022-01-01 10:00:00', '2022-01-01 10:00:00');
+INSERT INTO `tb_shop` VALUES (112, 'Smörgåstårteriet', 3, '/imgs/shops/smor.jpg', 'Norrmalm', 'Dalagatan 42, Stockholm', 18.0450, 59.3405, 280, 0000004200, 0000000950, 47, '11:30-22:00', '2022-01-01 10:00:00', '2022-01-01 10:00:00');
+INSERT INTO `tb_shop` VALUES (113, 'Ekstedt', 4, '/imgs/shops/ekstedt.jpg', 'Östermalm', 'Humlegårdsgatan 17, Stockholm', 18.0760, 59.3360, 1500, 0000001500, 0000000400, 50, '18:00-00:00', '2022-01-01 10:00:00', '2022-01-01 10:00:00');
+INSERT INTO `tb_shop` VALUES (114, 'Nook', 7, '/imgs/shops/nook.jpg', 'Södermalm', 'Åsögatan 176, Stockholm', 18.0860, 59.3130, 450, 0000003200, 0000000950, 48, '17:00-00:00', '2022-01-01 10:00:00', '2022-01-01 10:00:00');
