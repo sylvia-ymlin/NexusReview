@@ -1,0 +1,31 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: nexus-gateway
+  cloud:
+    consul:
+      host: ${SPRING_CLOUD_CONSUL_HOST:localhost}
+      port: 8500
+      discovery:
+        service-name: ${spring.application.name}
+        instance-id: ${spring.application.name}:${server.port}
+    gateway:
+      discovery:
+        locator:
+          enabled: true # 开启从配置中心动态发现路由
+      routes:
+        # AI 专家系统路由
+        - id: ai-service-route
+          uri: lb://nexus-service-ai
+          predicates:
+            - Path=/api/chat/**, /api/consultant/**
+
+        # 核心业务路由 (默认兜底)
+        - id: main-service-route
+          uri: lb://nexus-service-main
+          predicates:
+            - Path=/api/**
+          filters:
+            - StripPrefix=0 # 保持路径一致性，由各微服务自行处理 /api 逻辑或在后端 rewrite

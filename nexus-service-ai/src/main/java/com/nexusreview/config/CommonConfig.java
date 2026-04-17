@@ -1,5 +1,6 @@
 package com.nexusreview.config;
 
+import com.nexusreview.client.ShopClient;
 import dev.langchain4j.data.document.Document;
 import dev.langchain4j.data.document.loader.ClassPathDocumentLoader;
 import dev.langchain4j.memory.ChatMemory;
@@ -13,30 +14,24 @@ import dev.langchain4j.store.embedding.EmbeddingStoreIngestor;
 import dev.langchain4j.store.embedding.inmemory.InMemoryEmbeddingStore;
 import dev.langchain4j.store.memory.chat.ChatMemoryStore;
 import com.nexusreview.entity.Shop;
-import com.nexusreview.entity.ShopType;
-import com.nexusreview.service.IShopService;
-import com.nexusreview.service.IShopTypeService;
 import java.util.Map;
-import java.util.stream.Collectors;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Configuration
 public class CommonConfig {
 
     private final OpenAiChatModel model;
-
     private final ChatMemoryStore redisChatMemoryStore;
-    private final IShopService shopService;
-    private final IShopTypeService shopTypeService;
+    private final ShopClient shopClient;
 
     public CommonConfig(OpenAiChatModel model, ChatMemoryStore redisChatMemoryStore, 
-                        IShopService shopService, IShopTypeService shopTypeService) {
+                        ShopClient shopClient) {
         this.model = model;
         this.redisChatMemoryStore = redisChatMemoryStore;
-        this.shopService = shopService;
-        this.shopTypeService = shopTypeService;
+        this.shopClient = shopClient;
     }
 
     @Bean
@@ -49,18 +44,14 @@ public class CommonConfig {
 
     @Bean
     public ChatMemoryProvider chatMemoryProvider(){
-        //匿名内部类
-        //根据记忆ID获取记忆对象
-        //设置记忆存储组件
-        return new ChatMemoryProvider(){//匿名内部类
-            //根据记忆ID获取记忆对象
+        return new ChatMemoryProvider(){
             @Override
             public ChatMemory get(Object memoryId){
                 return MessageWindowChatMemory
                         .builder()
                         .maxMessages(20)
                         .id(memoryId)
-                        .chatMemoryStore(redisChatMemoryStore)//设置记忆存储组件
+                        .chatMemoryStore(redisChatMemoryStore)
                         .build();
             }
         };
@@ -72,16 +63,13 @@ public class CommonConfig {
         List<Document> documents = ClassPathDocumentLoader.loadDocuments("content");
         System.out.println("AI知识库加载: 静态文档数量 = " + documents.size());
 
-        // 2. 加载数据库内容 (Dynamic Database RAG)
-        Map<Long, String> typeMap = shopTypeService.list().stream()
-                .collect(Collectors.toMap(ShopType::getId, ShopType::getName));
-        
-        List<Shop> shops = shopService.list();
-        System.out.println("AI知识库加载: 数据库商铺数量 = " + shops.size());
+        // 2. 加载远程数据库内容 (Distributed RAG via Feign)
+        Map<Long, String> typeMap = shopClient.listShopTypes();
+        List<Shop> shops = shopClient.listShops();
+        System.out.println("AI知识库加载: 远程获取商铺数量 = " + shops.size());
 
         List<Document> dbDocuments = shops.stream().map(shop -> {
             String category = typeMap.getOrDefault(shop.getTypeId(), "Other");
-            // 构建包含中英文地标的描述，提升跨语言检索召回率
             String content = String.format(
                 "Shop: [%s]\nCategory: %s\nLocation: %s, Stockholm, Sweden (斯德哥尔摩, 瑞典)\nAddress: %s\nRating: %.1f/5.0\nPrice: %d SEK (Avg)\nHours: %s\nDescription: A top-rated %s spot in the heart of Stockholm.",
                 shop.getName(), category, shop.getArea(), shop.getAddress(), 
@@ -91,10 +79,7 @@ public class CommonConfig {
             return Document.from(content);
         }).collect(Collectors.toList());
 
-        // 3. 创建内存向量库
         InMemoryEmbeddingStore store = new InMemoryEmbeddingStore();
-        
-        // 4. 向量化并摄取数据 (Hybrid Ingestion)
         EmbeddingStoreIngestor ingestor = EmbeddingStoreIngestor.builder()
                 .embeddingStore(store)
                 .build();
@@ -108,6 +93,14 @@ public class CommonConfig {
 
     @Bean
     public ContentRetriever contentRetriever(EmbeddingStore store){
+        return EmbeddingStoreContentRetriever.builder()
+                .embeddingStore(store)
+                .minScore(0.3)
+                .maxResults(5)
+                .build();
+    }
+}
+c ContentRetriever contentRetriever(EmbeddingStore store){
         return EmbeddingStoreContentRetriever.builder()
                 .embeddingStore(store)//设置向量数据库操作对象
                 .minScore(0.3)// 降低分值门槛，确保检索召回率
